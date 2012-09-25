@@ -41,7 +41,7 @@ class rvm_setup {
 		rvm_system_ruby {
 		  'ruby-1.9.3-p0':
 		    ensure => 'present',
-			require => File["/root/.curlrc"]
+			require => File["/root/.curlrc"],
 		    default_use => false;
 		}
 	
