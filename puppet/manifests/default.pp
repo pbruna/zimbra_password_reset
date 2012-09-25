@@ -1,4 +1,5 @@
 include rvm_setup
+include nginx
 
 user {'itlinux':
 	ensure => present,

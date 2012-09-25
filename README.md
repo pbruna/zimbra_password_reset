@@ -56,3 +56,19 @@ puppet apply /etc/puppet/manifests/default.pp
 ```
 
 Este proceso puede demorar un buen tiempo, ya que debe descargar una serie de paquetes desde Internet.
+
+_Puede ser necesario ejecutarlo dos veces, debes ver la siguiente salida_
+```bash
+notice: /Stage[main]/Rvm_setup/Rvm_system_ruby[ruby-1.9.3-p0]/ensure: created
+notice: /Stage[main]/Rvm_setup/Rvm_gemset[ruby-1.9.3-p0@rails-3.2]/ensure: created
+notice: /Stage[main]/Rvm_setup/Rvm_gem[ruby-1.9.3-p0@rails-3.2/rails]/ensure: created
+```
+
+####4. Instalar Aplicación
+```bash
+cp -a pbruna-zimbra_password_reset-c91d4cd/Rails_App/ /home/itlinux/
+chown itlinux.itlinux -R /home/itlinux/
+sudo su - itlinux
+cd Rails_App/ZimbraPasswordReset/ # Aceptar la pregunta
+bundle
+```
