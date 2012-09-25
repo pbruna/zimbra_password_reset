@@ -71,4 +71,5 @@ chown itlinux.itlinux -R /home/itlinux/
 sudo su - itlinux
 cd Rails_App/ZimbraPasswordReset/ # Aceptar la pregunta
 bundle
+bundle install --binstubs
 ```
