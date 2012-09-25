@@ -20,6 +20,7 @@ El procedimiento para recupera la contraseña es el siguiente:
 4. El correo electrónico tiene un enlace, que dura 24 horas, con el cual el usuario puede restablecer la contraseña.
 
 # Instalación
+La aplicación está construida con el Framework Ruby on Rails. A continuación se indican los pasos para instalar y configurarla.
 
 ## Configuración de S.O.
 Esta herramienta fue desarrollada para trabajar con CentOS/Red Hat 5 o superior.
@@ -39,4 +40,19 @@ yum install puppet -y
 
 ### Configuración de Dependencias
 
-1. Descargar 
+####1. Descargar y descomprir tgz de la aplicación:
+```bash
+curl -L -k https://github.com/pbruna/zimbra_password_reset/tarball/master > zimbra_password_reset.tgz
+```
+
+####2. Copiar contenido del directorio puppet a /etc/puppet
+```bash
+cp -a pbruna-zimbra_password_reset-f07e8cf/puppet/* /etc/puppet/
+```
+
+####3. Configurar sistema con puppet
+```bash
+puppet apply /etc/puppet/manifests/default.pp
+```
+
+Este proceso puede demorar un buen tiempo, ya que debe descargar una serie de paquetes desde Internet.
