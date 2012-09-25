@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Carter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="<%= mailboxes_path()%>">
+				<%= image_tag "http://www.ucsc.cl/wp-content/themes/ucsc/img/logo/ucsc-header.png"%>
+			</a>
+			<!-- <div style="margin-top: 20px;text-align: center;">
+						<a class="brand" href="#">
+							<h2>Administracion de Zimbra</h2>
+						</a>
+					</div> -->
+			<div id="user-greet">
+				<% if current_user %>
+					<%= current_user.email %> |
+					<%= link_to "Salir", destroy_user_session_path, :method => :delete %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container-fluid">
+	<% flash.each do |name, msg| %>
+	  <div class=" alert alert-<%= name == :notice ? "success" : "error" %>">
+	    <a class="close" data-dismiss="alert">×</a>
+	    <%= msg %>
+	  </div>
+	<% end %>
+    <div id="main" class="">
+      <%= yield %>
+    </div>
+</div>
+
+
+</body>
+</html>

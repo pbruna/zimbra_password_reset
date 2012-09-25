@@ -1,0 +1,12 @@
+<div id="loggin_box">
+	<h3>Cambiar contraseña a <span class="label label-inverse"><%= @mailbox.email %></span></h3>
+	<%= form_tag "/mailboxes/#{@mailbox.email}", :method => :put do %>
+		<br/>
+		<h4>Nueva Contraseña</h4><%= password_field_tag :password, nil, :autofocus => true, :required => true %>
+		<br/><br/>
+		<h4>Confirmar Contraseña</h4><%= password_field_tag :password_confirmation, nil, :required => true %>
+		<div class="form-actions">
+		    <%= button_tag  "Actualizar", :class => "btn btn-success" %>
+		  </div>
+	<% end %>
+</div>

@@ -1,0 +1,13 @@
+<div id="loggin_box">
+<h2>Cambia tu contraseña de Correo</h2>
+	<%= simple_form_for(@mailbox, :url => password_reset_path(@mailbox), :html => {:class => "form-horizontal"}) do |f| %>
+		<div class="form-inputs">
+			<%= f.input :password, :required => true, :label => "Nueva Contraseña", :autofocus => true %>
+			<%= f.input :password_confirmation, :required => true, :label => "Confirmación" %>
+		</div>
+		<div class="form-actions">
+		    <%= f.button :submit, "Actualizar contraseña", :class => "btn btn-danger" %>
+			<%= f.input :reset_password_token, :as => :hidden, :input_html => {:value => params[:reset_password_token]} %>
+		 </div>
+	<% end %>
+</div>

@@ -1,0 +1,21 @@
+// Place all the styles related to the mailboxes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#main-search {
+	margin: 100px auto;
+	width: 50%;
+	text-align: left;	
+}
+
+#password-change {
+	margin: 50px auto;
+	width: 50%;
+	text-align: left;
+}
+
+#loggin_box {
+	.label {
+		font-size: 14px;
+	}
+}

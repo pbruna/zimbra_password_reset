@@ -1,0 +1,11 @@
+<div id="main-search">
+	<%= form_tag "/mailboxes/search", :method => :post do %>
+		<h2>Ingrese la cuenta que busca</h2>
+		<div class="input-append">
+			<%= email_field_tag :email, nil, :placeholder => "cuenta@ucsc.cl", :class => "span5", :autofocus => true -%><%= button_tag "Buscar Casilla", :class => "btn btn-success"%>
+		</div>
+	<% end %>
+</div>
+
+
+	

@@ -1,0 +1,20 @@
+<div id="loggin_box">
+<h2>Cambia tu contraseña</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put , :class => "form-horizontal"}) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :reset_password_token, :as => :hidden%>
+  <%= f.full_error :reset_password_token %>
+
+  <div class="form-inputs">
+    <%= f.input :password, :required => true, :autofocus => true, :label => "Nueva contraseña"  %>
+    <%= f.input :password_confirmation, :label => "Confirmación", :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Actualizar contraseña", :class => "btn btn-danger" %>
+  </div>
+<% end %>
+
+</div>
