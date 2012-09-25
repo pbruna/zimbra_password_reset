@@ -26,6 +26,12 @@ package {'nodejs':
 	ensure => present,
 }
 
+file {'/root/.curlrc':
+	ensure => file,
+	owner => "root",
+	content => "insecure"
+}
+
 
 class rvm_setup {
 	include rvm
@@ -35,6 +41,7 @@ class rvm_setup {
 		rvm_system_ruby {
 		  'ruby-1.9.3-p0':
 		    ensure => 'present',
+			require => File["/root/.curlrc"]
 		    default_use => false;
 		}
 	
