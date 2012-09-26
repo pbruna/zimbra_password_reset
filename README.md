@@ -101,9 +101,25 @@ production:
   ssl: false
 ```
 
+####6. Configurar envío de Correos
+Se debe editar el archivo /home/itlinux/Rails_App/ZimbraPasswordReset/config/initializers/smtp_config.rb:
+
+```ruby
+ActionMailer::Base.default_url_options = { :host => 'www.sitio.com' }
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.smtp_settings = {
+  :address        => "servidor.domain.com",
+  :port           => 587,
+  :domain         => "example.com",
+  :user_name      => "support@example.com",
+  :password       => "password",
+  :enable_starttls_auto => false
+}
+```
+
 Solo reemplazar lo indicado en _cursivas_
 
-###6. Iniciar Aplicación
+####7. Iniciar Aplicación
 ```bash
 service cambioclave restart
 service nginx restart
