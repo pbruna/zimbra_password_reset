@@ -74,7 +74,6 @@ sudo su - itlinux
 cd Rails_App/ZimbraPasswordReset/ # Aceptar la pregunta
 bundle
 bundle install --binstubs
-rake
 rake assets:precompile
 RAILS_ENV=production rake db:create
 RAILS_ENV=production rake db:migrate
