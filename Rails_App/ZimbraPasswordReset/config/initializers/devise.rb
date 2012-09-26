@@ -14,7 +14,7 @@ Devise.setup do |config|
   config.ldap_auth_username_builder = Proc.new() do |attribute, login, ldap|
       uid, domain = login.split("@")
       ldap_base = domain.split(/\./).map {|v| "dc=#{v}"}.join(",")
-      "uid=#{uid},#{ldap_base}"
+      "uid=#{uid},ou=people,#{ldap_base}"
     end
   
   # ==> Mailer Configuration

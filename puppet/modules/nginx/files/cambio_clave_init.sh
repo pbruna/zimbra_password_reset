@@ -15,7 +15,7 @@ set -e
 TIMEOUT=${TIMEOUT-60}
 APP_ROOT=/home/itlinux/Rails_App/ZimbraPasswordReset
 APP_USER="itlinux"
-PID=$APP_ROOT/tmp/unicorn.pid
+PID=$APP_ROOT/log/unicorn.pid
 SET_RVM="rvm use ruby-1.9.3-p0@rails-3.2"
 CMD="$APP_ROOT/bin/unicorn -D -c $APP_ROOT/config/unicorn.rb -E production"
 action="$1"

@@ -13,7 +13,7 @@ timeout 30
 # We will point the upstream Nginx module to this socket later on
 listen "/tmp/unicorn.cambioclave.sock", :backlog => 64
 
-pid "/home/itlinux/Rails_App/ZimbraPasswordReset/tmp/unicorn.pid"
+pid "/home/itlinux/Rails_App/ZimbraPasswordReset/log/unicorn.pid"
 
 # Set the path of the log files inside the log folder of the testapp
 stderr_path "/home/itlinux/Rails_App/ZimbraPasswordReset/log/unicorn.stderr.log"

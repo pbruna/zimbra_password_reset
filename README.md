@@ -30,6 +30,7 @@ Se debe realizar la siguiente configuración del Sistema Operativo.
 
 1. Instalar repositorio EPEL: http://fedoraproject.org/wiki/EPEL/es
 2. Instalar repositorio de Nodejs: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
+3. Instalar repositorio de nginx: http://wiki.nginx.org/Install#Official_Red_Hat.2FCentOS_packages
 
 ### Instalación de Software Base
 
@@ -67,9 +68,43 @@ notice: /Stage[main]/Rvm_setup/Rvm_gem[ruby-1.9.3-p0@rails-3.2/rails]/ensure: cr
 ####4. Instalar Aplicación
 ```bash
 cp -a pbruna-zimbra_password_reset-c91d4cd/Rails_App/ /home/itlinux/
+mkdir /home/itlinux/Rails_App/ZimbraPasswordReset/tmp
 chown itlinux.itlinux -R /home/itlinux/
 sudo su - itlinux
 cd Rails_App/ZimbraPasswordReset/ # Aceptar la pregunta
 bundle
 bundle install --binstubs
+rake
+rake assets:precompile
+RAILS_ENV=production rake db:create
+RAILS_ENV=production rake db:migrate
+```
+
+
+####5. Configurar conexión con Zimbra
+Se debe editar el archivo /home/itlinux/Rails_App/ZimbraPasswordReset/config/app_config.yml, el cual debe ser similar a:
+
+```yaml
+production:
+  host: _host_zimbra_ldap_
+  port: _puerto_ldap_
+  admin_password: _contraseña_ldap_zimbra_
+  backend_url: _url_de_web_service_
+  backend_key: _key_del_webservice_
+  app_email_from: _email_de_quien_envia_correo_
+  attribute: mail
+  base: ""
+  require_attribute:
+      zimbraisadminaccount: "TRUE"
+  admin_user: uid=zimbra,cn=admins,cn=zimbra
+  url_for_not_admins: "http://www.google.cl/"
+  ssl: false
+```
+
+Solo reemplazar lo indicado en _cursivas_
+
+###6. Iniciar Aplicación
+```bash
+service cambioclave restart
+service nginx restart
 ```

@@ -23,10 +23,10 @@
 development:
   host: 127.0.0.1
   port: 389
-  attribute: mail
+  attribute: zimbraMailDeliveryAddress
   base: ""
   require_attribute:
-      zimbraisadminaccount: "TRUE"
+      zimbraisadminaccount: "FALSE"
   admin_user: uid=zimbra,cn=admins,cn=zimbra
   admin_password: KvhD6KXTf5
   url_for_not_admins: "http://www.google.cl/"

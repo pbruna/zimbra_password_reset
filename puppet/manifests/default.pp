@@ -8,6 +8,12 @@ user {'itlinux':
 	shell => '/bin/bash',
 }
 
+file {'/home/itlinux/':
+	ensure => directory,
+	mode => "0755",
+	require => User["itlinux"]
+}
+
 file {'/home/itlinux/App':
 	ensure => directory,
 	owner => 'itlinux',
