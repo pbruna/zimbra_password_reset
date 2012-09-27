@@ -5,14 +5,13 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-Rails_App/ZimbraPasswordReset//.bundle
+Rails_App/ZimbraPasswordReset/.bundle
 
 # Ignore the default SQLite database.
-Rails_App/ZimbraPasswordReset//db/*.sqlite3
+Rails_App/ZimbraPasswordReset/db/*.sqlite3
 
 # Ignore all logfiles and tempfiles.
 Rails_App/ZimbraPasswordReset/log/*.log
 Rails_App/ZimbraPasswordReset/tmp/*
-Rails_App/ZimbraPasswordReset/
 Rails_App/ZimbraPasswordReset/config/app_config.yml
 Rails_App/ZimbraPasswordReset/config/initializers/smtp_config.rb
