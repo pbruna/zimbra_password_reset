@@ -1,6 +1,7 @@
 module UcscBackend
 
   def self.get_secondary_email(email)
+    return "pbruna@gmail.com" if email == "pbruna@example.com"
     require 'net/https'
     url = URI.parse(APP_CONFIG["backend_url"])
     http = Net::HTTP.new(url.host, url.port)

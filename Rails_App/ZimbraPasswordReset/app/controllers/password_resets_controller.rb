@@ -20,6 +20,9 @@ class PasswordResetsController < ApplicationController
     else
       @ldap_mailbox = Mailbox.ldap_find(@mailbox.email)
       if @ldap_mailbox.ldap_update_password(params[:mailbox][:password])
+        @mailbox.password_reset_token = nil
+        @mailbox.save
+        @mailbox.send_password_change_notification
         flash[:notice] = "Contraseña actualizada correctamente"
       else
         flash[:error] = "No fue posible actualizar las contraseñas. Revise el log de error."

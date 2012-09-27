@@ -22,6 +22,11 @@ class Mailbox < ActiveRecord::Base
     !secondary_email.nil?
   end
   
+  def send_password_change_notification
+    mailbox = Mailbox.find_by_email(self.email)
+    MailboxMailer.password_change_notification(mailbox).deliver
+  end
+  
   def send_password_reset
     mailbox = Mailbox.find_by_email(self.email)
     mailbox.generate_token(:password_reset_token)
