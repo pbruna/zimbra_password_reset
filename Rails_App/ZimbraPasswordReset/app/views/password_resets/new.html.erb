@@ -4,10 +4,14 @@
 <%= form_tag password_resets_path, :method => :post do %>
 
   <div class="form-inputs">
-	<h4>Ingrese su email de Zimbra</h4>
-    <%= email_field_tag :email, nil, :required => true,  :autofocus => true, :placeholder => "cuenta@ucsc.cl" %>
+	<h4>Ingrese su correo corporativo UCSC</h4>
+    <%= email_field_tag :email, nil, :required => true,  :autofocus => true, :placeholder => "cuenta@ucsc.cl", :style => "width: 260px;" %>
 	<p>
 		Ingresa tu dirección @ucsc.cl y enviaremos las instrucciones para actualizar la contraseña a tu casilla de correo personal.
+	</p>
+	<p>
+			Si no te llega ningún correo, revisa la carpeta de correo no deseado.
+			<br/>Recuerda que la dirección del remitente es soporte_correo@ucsc.cl.
 	</p>
   </div>
 

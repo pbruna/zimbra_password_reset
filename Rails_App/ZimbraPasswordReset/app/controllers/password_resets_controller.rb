@@ -23,7 +23,9 @@ class PasswordResetsController < ApplicationController
         @mailbox.password_reset_token = nil
         @mailbox.save
         @mailbox.send_password_change_notification
-        flash[:notice] = "Contraseña actualizada correctamente"
+        flash[:redirect] = true
+        flash[:notice] = "Contraseña actualizada correctamente.<br/>
+                          <strong>En breves segundos serás redirigo a tu correo.</strong>".html_safe
       else
         flash[:error] = "No fue posible actualizar las contraseñas. Revise el log de error."
       end
