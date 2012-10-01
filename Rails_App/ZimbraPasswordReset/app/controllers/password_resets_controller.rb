@@ -35,7 +35,7 @@ class PasswordResetsController < ApplicationController
     @mailbox = Mailbox.ldap_find(params[:email])
     if @mailbox && @mailbox.has_secondary_email?
       @mailbox.send_password_reset
-      flash[:notice] = "Se ha enviado un email a #{@mailbox.secondary_email} con las instrucciones."
+      flash[:notice] = "Se ha enviado un email a #{@mailbox.ofuscated_secondary_email} con las instrucciones."
       redirect_to new_password_reset_path
     elsif @mailbox && !@mailbox.has_secondary_email?
       flash[:alert] = "No tiene registrado una dirección de email de respaldo.".html_safe
@@ -46,5 +46,8 @@ class PasswordResetsController < ApplicationController
     end
     
   end
+  
+  
+
   
 end

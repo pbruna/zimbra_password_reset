@@ -18,6 +18,12 @@ class Mailbox < ActiveRecord::Base
     UcscBackend::get_secondary_email(email)
   end
   
+  def ofuscated_secondary_email
+    address, domain = secondary_email.split(/@/)
+    root = domain.split(/\./).last
+    "#{address}@xxxxxxxxxx.#{root}"
+  end
+  
   def has_secondary_email?
     !secondary_email.nil?
   end
