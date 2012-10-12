@@ -4,6 +4,12 @@
 		<div class="form-inputs">
 			<%= f.input :password, :required => true, :label => "Nueva Contraseña", :autofocus => true %>
 			<%= f.input :password_confirmation, :required => true, :label => "Confirmación" %>
+			<p>
+				<strong>Nota:</strong> La contraseña debe contener un mínimo de <%= APP_CONFIG["password_policy"]["min_size"] %> 
+				carácteres de los cuales al menos <%= APP_CONFIG["password_policy"]["min_numbers"] %> deben ser números, 
+				al menos <%= APP_CONFIG["password_policy"]["min_uppercase"] %> letras mayúsculas y 
+				al menos <%= APP_CONFIG["password_policy"]["min_lowercase"] %> letras minúsculas.
+			</p>
 		</div>
 		<div class="form-actions">
 		    <%= f.button :submit, "Actualizar contraseña", :class => "btn btn-danger" %>

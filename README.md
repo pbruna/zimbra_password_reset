@@ -5,8 +5,10 @@ Este es el software utilizado en UCSC para que los usuarios de Zimbra recuperen 
 Se puede visitar en http://cambioclave.ucsc.cl
 
 ## Uso para Administradores
-El usuario que también es administrador de Zimbra CS (atributo __zimbraIsAdminAccount__) puede ingresar a la aplicación en http://cambioclave.ucsc.cl, con su dirección correo y contraseña de Zimbra.
+El usuario que también es administrador de Zimbra CS (atributo __zimbraIsAdminAccount__) es un super-administrador, el cual además de cambiar contraseña de usuarios, puede conceder permisos a otros usuarios para realizar el cambio de contraseña.
+Para otorgar los permisos el usuario debe buscar el usuario, como si fuera a cambiar la contraseña, y seleccionar el cuadro que dice "Administrador"
 
+Todos los usuarios marcados como administradores pueden ingresar a la aplicación en http://cambioclave.ucsc.cl, con su dirección correo y contraseña de Zimbra.
 Una vez dentro tendrá la opción de buscar usuarios, utilizando la dirección de correos, y realizar el cambio de contraseña.
 
 ## Uso para Usuarios
@@ -80,7 +82,7 @@ RAILS_ENV=production rake db:migrate
 ```
 
 
-####5. Configurar conexión con Zimbra
+####5. Configurar Aplicación
 Se debe editar el archivo /home/itlinux/Rails_App/ZimbraPasswordReset/config/app_config.yml, el cual debe ser similar a:
 
 ```yaml
@@ -98,7 +100,14 @@ production:
   admin_user: uid=zimbra,cn=admins,cn=zimbra
   url_for_not_admins: "http://www.google.cl/"
   ssl: false
+  password_policy:
+      min_size: 7
+      min_numbers: 2
+      min_lowercase: 1
+      min_uppercase: 1
+      min_punctuation: 0
 ```
+**password_policy** se utiliza para establecer la política del formato de la contraseña	
 
 ####6. Configurar envío de Correos
 Se debe editar el archivo /home/itlinux/Rails_App/ZimbraPasswordReset/config/initializers/smtp_config.rb:
