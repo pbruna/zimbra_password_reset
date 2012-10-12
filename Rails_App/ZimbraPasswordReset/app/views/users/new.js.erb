@@ -1,0 +1,3 @@
+$("#user_form.modal").remove();
+$('#user_modal').append('<%= j render(:partial => "modal_user_form", :locals => {:title => "Agregar Usuario"})%>');
+$("#user_form.modal").modal('show');

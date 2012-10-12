@@ -5,6 +5,9 @@
 			<%= email_field_tag :email, nil, :placeholder => "cuenta@ucsc.cl", :class => "span5", :autofocus => true -%><%= button_tag "Buscar Casilla", :class => "btn btn-success"%>
 		</div>
 	<% end %>
+	<div style="font-weight: bold">
+		<%= link_to "Usuarios administradores", users_path() %>
+	</div>
 </div>
 
 

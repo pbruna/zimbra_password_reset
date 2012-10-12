@@ -1,0 +1,6 @@
+<% if @user.errors.size > 0 %>
+	window.location = "<%= users_path() %>"
+<% else %>
+	$("#<%= @user.id %>").effect("highlight", {color: "red"}, 1500);
+	$("#<%= @user.id %>").remove();
+<% end %>

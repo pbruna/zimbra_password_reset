@@ -3,11 +3,11 @@
 Devise.setup do |config|
   # ==> LDAP Configuration 
   config.ldap_logger = true
-  config.ldap_create_user = true
+  config.ldap_create_user = false
   config.ldap_update_password = true
   config.ldap_config = "#{Rails.root}/config/app_config.yml"
   # config.ldap_check_group_membership = false
-  config.ldap_check_attributes = true
+  #config.ldap_check_attributes = true
   config.ldap_use_admin_to_bind = true
   # config.ldap_ad_group_check = false
   # This options split the email to format the ldap dn

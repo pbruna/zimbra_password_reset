@@ -1,0 +1,11 @@
+<% if @user.errors.size > 0 %>
+	$("#user_form").modal("hide");
+	$("#user_form.modal").remove();
+	$('#user_modal').append('<%= j render(:partial => "modal_user_form", :locals => {:title => "Agregar Usuario"})%>');
+	$("#user_form").modal("show");
+<% else %>
+	$("#user_form").modal("hide");
+	$("#user_form.modal").remove();
+	$("#admins").find('tbody').append('<%= j render(:partial => "user", :locals => {:user => @user})%>');
+	$("#<%= @user.id %>").effect("highlight", null, 1500);
+<% end %>
