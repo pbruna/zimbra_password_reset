@@ -5,6 +5,12 @@
 		<h4>Nueva Contraseña</h4><%= password_field_tag :password, nil, :autofocus => true, :required => true %>
 		<br/><br/>
 		<h4>Confirmar Contraseña</h4><%= password_field_tag :password_confirmation, nil, :required => true %>
+		<p>
+			<strong>Nota:</strong> La contraseña debe contener un mínimo de <%= APP_CONFIG["password_policy"]["min_size"] %> 
+			carácteres de los cuales al menos <%= APP_CONFIG["password_policy"]["min_numbers"] %> deben ser números, 
+			al menos <%= APP_CONFIG["password_policy"]["min_uppercase"] %> letras mayúsculas y 
+			al menos <%= APP_CONFIG["password_policy"]["min_lowercase"] %> letras minúsculas.
+		</p>
 		<div class="form-actions">
 		    <%= button_tag  "Actualizar", :class => "btn btn-success" %>
 		  </div>
