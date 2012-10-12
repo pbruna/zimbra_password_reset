@@ -6,6 +6,7 @@ Se puede visitar en http://cambioclave.ucsc.cl
 
 ## Uso para Administradores
 El usuario que también es administrador de Zimbra CS (atributo __zimbraIsAdminAccount__) es un super-administrador, el cual además de cambiar contraseña de usuarios, puede conceder permisos a otros usuarios para realizar el cambio de contraseña.
+
 Para otorgar los permisos el usuario debe buscar el usuario, como si fuera a cambiar la contraseña, y seleccionar el cuadro que dice "Administrador"
 
 Todos los usuarios marcados como administradores pueden ingresar a la aplicación en http://cambioclave.ucsc.cl, con su dirección correo y contraseña de Zimbra.
@@ -132,3 +133,11 @@ Solo reemplazar lo indicado en _cursivas_
 service cambioclave restart
 service nginx restart
 ```
+
+####8. Crear usuario Administrador
+Ejecutar el siguiente comando en la raíz de la Aplicación:
+
+```bash
+RAILS_ENV=production rake zimbrapasswordreset:create_admin
+```
+
