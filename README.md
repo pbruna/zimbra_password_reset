@@ -115,6 +115,7 @@ Se debe editar el archivo /home/itlinux/Rails_App/ZimbraPasswordReset/config/ini
 
 ```ruby
 ActionMailer::Base.default_url_options = { :host => 'www.sitio.com' }
+ActionMailer::Base.asset_host = "http://www.sitio.com"
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.smtp_settings = {
   :address        => "servidor.domain.com",
